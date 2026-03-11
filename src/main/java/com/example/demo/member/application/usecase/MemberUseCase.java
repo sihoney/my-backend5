@@ -1,13 +1,13 @@
 package com.example.demo.member.application.usecase;
 
-import com.example.demo.member.domain.model.Member;
 import com.example.demo.member.presentation.dto.request.CreateMemberRequest;
-import com.example.demo.member.presentation.dto.request.Login;
+import com.example.demo.member.presentation.dto.request.LoginRequest;
 import com.example.demo.member.presentation.dto.response.MemberAdminResponse;
 import com.example.demo.member.presentation.dto.response.MemberResponse;
+import org.springframework.http.ResponseEntity;
 
+import java.util.HashMap;
 import java.util.List;
-import java.util.UUID;
 
 // Member 반환 X (개인정보 보호)
 
@@ -17,5 +17,6 @@ public interface MemberUseCase {
 
     MemberResponse create(CreateMemberRequest request);
 
-    Boolean login(Login login);
+    ResponseEntity<HashMap<String, Object>> login(LoginRequest loginRequest);
+//    Boolean login(LoginRequest login);
 }

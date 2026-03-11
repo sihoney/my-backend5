@@ -1,6 +1,6 @@
 package com.example.demo.member.presentation.dto.request;
 
-public record Login (
+public record LoginRequest(
         String email,
         String password
 ){

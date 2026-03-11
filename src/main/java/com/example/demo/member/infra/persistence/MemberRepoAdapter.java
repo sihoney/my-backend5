@@ -25,10 +25,10 @@ public class MemberRepoAdapter implements MemberRepository {
         return memberJpaRepository.save(member);
     }
 
-//    @Override
-//    public Optional<Member> findById(UUID memberId) {
-//        return memberJpaRepository.findById(memberId);
-//    }
+    @Override
+    public Optional<Member> findById(UUID memberId) {
+        return memberJpaRepository.findById(memberId);
+    }
 
     @Override
     public boolean findByPhone(String phone) {
@@ -36,7 +36,7 @@ public class MemberRepoAdapter implements MemberRepository {
     }
 
     @Override
-    public Member findByEmail(String email) {
-        return memberJpaRepository.findByEmail(email).orElseThrow();
+    public Optional<Member> findByEmail(String email) {
+        return memberJpaRepository.findByEmail(email);
     }
 }
