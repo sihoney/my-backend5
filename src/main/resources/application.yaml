@@ -1,8 +1,11 @@
 spring:
   config:
     import: optional:file:.env[.properties]
+  batch:
+    job:
+      enabled: false
   application:
-    name: demo
+    name: backend5-service
   datasource:
     url:
       jdbc:postgresql://${DB_HOST:localhost}:${DB_PORT:5432}/${DB_NAME:demo}
@@ -12,9 +15,18 @@ spring:
   jpa:
     hibernate:
       ddl-auto: update
+#  sql:
+#    init:
+#      mode: always
+#      schema-locations: classpath:org/springframework/batch/core/schema-postgresql.sql
+#      continue-on-error: true
 
 springdoc:
   swagger-ui:
     path: /swagger-ui.html
   api-docs:
     path: /v3/api-docs
+
+payment:
+  toss:
+    secret-key: ${TOSS_PAYMENT_SECRET}
